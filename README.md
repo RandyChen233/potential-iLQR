@@ -6,3 +6,6 @@ _Kavuncu, Talha & Yaraneri, Ayberk & Mehr, Negar. (2021). Potential iLQR: A Pote
 The code structure references the _Underactauted Robotics_ course from MIT (Prof Russ Tedrake):
 http://underactuated.mit.edu/trajopt.html#section8
 https://colab.research.google.com/github/RussTedrake/underactuated/blob/master/exercises/trajopt/ilqr_driving/ilqr_driving.ipynb
+
+note: rather than using the symbolic representation implemented in the google colab template from _Underactuated Robotics_,  I have chosen to use numerical representations throughout the derivations of the iterative LQR algorithm in my code.
+
