@@ -1,0 +1,1 @@
+from .decentralized import hello, add
