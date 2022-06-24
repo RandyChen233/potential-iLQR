@@ -1,12 +1,6 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib as mpl    
-import seaborn as sns
-plt.style.use('seaborn') 
-import itertools
 import torch
-
-
+import itertools
 
 def compute_pairwise_distance(X, x_dims):
     """Compute the distance between each pair of agents"""
