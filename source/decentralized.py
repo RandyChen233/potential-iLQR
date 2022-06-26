@@ -50,7 +50,7 @@ def online_split_inputs(n_agents,n_inputs,N,problems,U):
                 ], axis=1)
         
         return full_inputs
-    
+
     
 def define_inter_graph_threshold(X, n_agents, radius, x_dims):
     """Compute the interaction graph based on a simple thresholded distance
@@ -66,11 +66,13 @@ def define_inter_graph_threshold(X, n_agents, radius, x_dims):
     
     # Put each pair of agents within each others' graphs if they are within
     # some threshold distance from each other.
-    graph = {i: set([i]) for i in range(n_agents)}
+    graph = {i: [i] for i in range(n_agents)}
     pair_inds = np.array(list(itertools.combinations(range(n_agents), 2)))
     for i, pair in enumerate(pair_inds):
         if np.any(rel_dists[sample_slice, i] < planning_radii):
-            graph[pair[0]].add(pair[1])
-            graph[pair[1]].add(pair[0])
-
+            graph[pair[0]].append(pair[1])
+            graph[pair[1]].append(pair[0])
+    
+    graph = {agent_id: sorted(prob_ids) for agent_id, prob_ids in graph.items()}
+    
     return graph
