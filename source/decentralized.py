@@ -40,16 +40,16 @@ def online_split_states(n_agents,n_states,N,problems,X):
 
 def online_split_inputs(n_agents,n_inputs,N,problems,U):
 
-        u_dims = [n_inputs]*n_agents
+    u_dims = [n_inputs]*n_agents
 #         U = np.tile(np.arange(n_agents * n_inputs), (N, 1))
-        full_inputs = [np.zeros((N,0))] * len(problems)
-        for i, problem in enumerate(problems):
-            for id_ in problem:
-                full_inputs[i] = np.concatenate([
-                    full_inputs[i], U[:,id_*n_inputs:(id_+1)*n_inputs]
-                ], axis=1)
-        
-        return full_inputs
+    full_inputs = [np.zeros((N,0))] * len(problems)
+    for i, problem in enumerate(problems):
+        for id_ in problem:
+            full_inputs[i] = np.concatenate([
+                full_inputs[i], U[:,id_*n_inputs:(id_+1)*n_inputs]
+            ], axis=1)
+
+    return full_inputs
 
     
 def define_inter_graph_threshold(X, n_agents, radius, x_dims):
