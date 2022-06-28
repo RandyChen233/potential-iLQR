@@ -1,4 +1,4 @@
-import numpy as np
+import autograd.numpy as np
 import torch
 import itertools
 
@@ -13,11 +13,9 @@ def compute_pairwise_distance(X, x_dims):
     X_agent = X.reshape(-1, n_agents, n_states).swapaxes(0, 2)
     dX = X_agent[:2, pair_inds[:, 0]] - X_agent[:2, pair_inds[:, 1]]
 
-    if isinstance(X, np.ndarray):
-        return np.linalg.norm(dX, axis=0)
-    elif torch.is_tensor(X):
+    if torch.is_tensor(X):
         return torch.linalg.norm(dX, dim=0)
-
+    return np.linalg.norm(dX, axis=0)
 
 
 def online_split_states(n_agents,n_states,N,problems,X):
