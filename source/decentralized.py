@@ -15,6 +15,8 @@ def compute_pairwise_distance(X, x_dims):
 
     if torch.is_tensor(X):
         return torch.linalg.norm(dX, dim=0)
+    
+    
     return np.linalg.norm(dX, axis=0)
 
 
